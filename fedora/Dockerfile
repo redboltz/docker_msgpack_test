@@ -4,6 +4,7 @@ MAINTAINER TAKATOSHI KONDO redboltz@gmail.com
 
 RUN yum -y install gcc
 RUN yum -y install gcc-c++
+RUN yum -y install clang
 RUN yum -y install autoconf
 RUN yum -y install automake
 RUN yum -y install libtool

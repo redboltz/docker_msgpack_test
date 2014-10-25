@@ -25,6 +25,8 @@ RUN apt-get install -y valgrind
 RUN wget https://googletest.googlecode.com/files/gtest-1.7.0.zip
 RUN unzip gtest-1.7.0.zip
 
+RUN cp -r /gtest-1.7.0/include/gtest /usr/local/include
+
 RUN cd gtest-1.7.0 && g++ src/gtest-all.cc -I. -Iinclude -c && g++ src/gtest_main.cc -I. -Iinclude -c && ar -rv libgtest.a gtest-all.o && ar -rv libgtest_main.a gtest_main.o
 RUN mv /gtest-1.7.0/*.a /usr/local/lib
 

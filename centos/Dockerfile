@@ -26,6 +26,5 @@ RUN cd gtest-1.7.0 && cmake . && make
 RUN cp -r /gtest-1.7.0/include/gtest /usr/local/include
 RUN cp /gtest-1.7.0/*.a /usr/local/lib64
 
-RUN make clean
-RUN make CFLAGS="-m32" CXXFLAGS="-m32"
+RUN cd gtest-1.7.0 && make clean && make CFLAGS="-m32" CXXFLAGS="-m32"
 RUN cp /gtest-1.7.0/*.a /usr/local/lib

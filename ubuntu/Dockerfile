@@ -10,7 +10,7 @@ RUN apt-get install -y autoconf
 RUN apt-get install -y automake
 RUN apt-get install -y libtool
 
-RUN apt-get install -y gcc-multilib lib32gcc1 libc6-i386 lib32z1 lib32stdc++6 g++-multilib
+RUN apt-get install -y gcc-multilib lib32gcc1 libc6-i386 lib32z1-dev lib32stdc++6 g++-multilib
 
 RUN apt-get install -y git
 RUN apt-get install -y wget
@@ -26,7 +26,6 @@ RUN wget https://googletest.googlecode.com/files/gtest-1.7.0.zip
 RUN unzip gtest-1.7.0.zip
 RUN cd gtest-1.7.0 && cmake . && make
 RUN cp -r /gtest-1.7.0/include/gtest /usr/local/include
-RUN cp /gtest-1.7.0/*.a /usr/local/lib
 
 RUN cd gtest-1.7.0 && g++ src/gtest-all.cc -I. -Iinclude -c && g++ src/gtest_main.cc -I. -Iinclude -c && ar -rv libgtest.a gtest-all.o && ar -rv libgtest_main.a gtest_main.o
 RUN mv /gtest-1.7.0/*.a /usr/local/lib
